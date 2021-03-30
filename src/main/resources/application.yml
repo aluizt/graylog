@@ -1,0 +1,11 @@
+logbook:
+  format:
+    style: http
+
+logging:
+  pattern:
+    level: "%X{correlationId} %5p"
+
+logging.level.org.zalando.logbook: TRACE
+
+
