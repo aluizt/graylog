@@ -2,11 +2,19 @@
 
 Exemplo de como utilizar o Graylog para centralizar os logs de diferentes aplicações.
 
+
+### Pré-requisitos
+* Java >= 8
+* Gradle
+* Docker
+* Git
+
+
+
 Para utilizar o Graylog, vamos criar containers através do docker com imagens do Graylog, ElasticSearch e MongoDB.
 
 Poderiamos criar um arquivo docker-compose, mas para ficar mais claro vamos subir os containers individualmente.     
 
-Vamos criar da forma mais simples possivel cada um dos containers.
 
 #### MongoDB
 ```  
