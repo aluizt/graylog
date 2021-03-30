@@ -1,4 +1,4 @@
-# graylog
+# Graylog
 
 Exemplo de como utilizar o Graylog para centralizar os logs de diferentes aplicações.
 
@@ -28,15 +28,19 @@ Criamos um container do Graylog fazendo um link para o MongoDB e para o Elastic,
 
 Após subir o Graylog, vamos acessar pelo navegador o endereço http://127.0.0.1:9000
 
+
 ![image](https://user-images.githubusercontent.com/41808527/113050218-f822cd00-917a-11eb-907c-3ac54cfc6069.png)
+
 
 Na aba System / Inputs, selecione GELF UDP e click Launch new Input. Aparecera uma aba com informações básicas, click em Save
 
+
 ![image](https://user-images.githubusercontent.com/41808527/113050557-59e33700-917b-11eb-885b-89562c7f9bab.png)
+
 
 Pronto, seu Input GELF UDP esta pronto, será através dele que você recebera os logs no Graylog.
 
-#### Spring Boot
+### Spring Boot
 
 Adicione a dependencia abaixo no arquivo build.gradle de seu projeto
 
@@ -89,6 +93,22 @@ Na pasta resources adicione o arquivo abaixo.
 
 Neste arquivo configuramos o envio para o Graylog, assim como salvar em um arquivo local os logs que forem gerados pela aplicação.
 
+Ao rodar a aplicação os logs do start do Spring já estarão visíveis no Graylog.
+
+![image](https://user-images.githubusercontent.com/41808527/113052192-37eab400-917d-11eb-9464-762bce28e6d8.png)
+
+
+![image](https://user-images.githubusercontent.com/41808527/113052348-67012580-917d-11eb-8bba-2de4e0f77be6.png)
+
+
+Para teste, foi criado dois endpoints, teste em seu navegado http://127.0.0.1:8080/log/info para gerar um simples log que será enviado ao Graylog
+
+![image](https://user-images.githubusercontent.com/41808527/113052630-c0695480-917d-11eb-9ce0-8964606fce1b.png)
+
+
+![image](https://user-images.githubusercontent.com/41808527/113052741-e1ca4080-917d-11eb-99cb-3f0e2a50973d.png)
+
+Esta é uma forma bem básica de utilizar alguns dos recursos do Graylog, diversas outras formas de utilização pode ser encontrada em https://docs.graylog.org/en/4.0/
 
 
 
