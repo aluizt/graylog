@@ -36,6 +36,8 @@ Criamos um container do Graylog fazendo um link para o MongoDB e para o Elastic,
 
 Após subir o Graylog, vamos acessar pelo navegador o endereço http://127.0.0.1:9000
 
+Entre com o usuário admin e senha admin, apos você ira para a tela abaixo.                            
+
 
 ![image](https://user-images.githubusercontent.com/41808527/113050218-f822cd00-917a-11eb-907c-3ac54cfc6069.png)
 
