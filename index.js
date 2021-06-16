@@ -1,26 +1,31 @@
-const graylog2 = require("graylog2");
+let logger = require("gelf-pro");
 
-const logger = new graylog2.graylog({
-    servers: [{ "host": "127.0.0.1", port: 12201 }],
-    // hostname: "test.name", // the name of this host
-    // (optional, default: os.hostname())
-    facility: "index.js",     // the facility for these log messages
-    // (optional, default: "Node.js")
-    bufferSize: 1350         // max UDP packet size, should never exceed the
-    // MTU of your system (optional, default: 1400)
+logger.setConfig({
+  fields: {
+    app_name: "busca-service",
+    facility: "example", 
+    owner: "Tom (a cat)",
+    os_name: "linux",
+    os_version: 10,
+    short_message: "LALA",
+    full_message: "LALAL",
+    level: 1,
+    line: 2,
+    file: "busca.js",
+    version: "1.0"
+  },
+  // adapterName: 'udp',
+  adapterOptions: {
+    host: '10.11.102.127',
+    // host: '127.0.0.1',
+    port: 12201,
+  }
 });
 
-logger.on("error", function (error) {
-    console.error("Error while trying to write to graylog2:", error);
-});
 
-logger.log("Erro", JSON.stringify({
-    name: "Error", 
-    message: "My first log.",
-    info: 1 
-}));
+logger.info(
+  'a new msg goes here'
+);
 
-logger.close(function(){
-    console.log('All done - Verify your Graylog');
-    process.exit();
-});
+// console.log('All done - Verify your Graylog');
+// process.exit();
